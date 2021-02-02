@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище RomanovAModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Author">
+    <Key>
+      <PropertyRef Name="AuthorId" />
+    </Key>
+    <Property Name="AuthorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NickName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AvtorisationP">
+    <Key>
+      <PropertyRef Name="ExpertId" />
+    </Key>
+    <Property Name="ExpertId" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NewsItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Header" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="Photo" Type="image" />
+    <Property Name="AuthorId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="PositionId" />
+    </Key>
+    <Property Name="PositionId" Type="int" Nullable="false" />
+    <Property Name="PositionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Header" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreationDate" Type="date" Nullable="false" />
+    <Property Name="ZaprosId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShopIdName">
+    <Key>
+      <PropertyRef Name="Id_Shop" />
+    </Key>
+    <Property Name="Id_Shop" Type="int" Nullable="false" />
+    <Property Name="NameShop" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateofBirthday" Type="date" Nullable="false" />
+    <Property Name="PositionId" Type="int" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WorkerBe">
+    <Key>
+      <PropertyRef Name="Id_Nal" />
+    </Key>
+    <Property Name="Id_Nal" Type="int" Nullable="false" />
+    <Property Name="Id_Worker" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="WorkerIsBe" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Workers">
+    <Key>
+      <PropertyRef Name="Id_Worker" />
+    </Key>
+    <Property Name="Id_Worker" Type="int" Nullable="false" />
+    <Property Name="FIO" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+    <Property Name="TimeOfBirth" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Salary" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="PositionId" Type="int" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WorkersExpenses">
+    <Key>
+      <PropertyRef Name="Id_Expenses" />
+    </Key>
+    <Property Name="Id_Expenses" Type="int" Nullable="false" />
+    <Property Name="Id_Worker" Type="int" Nullable="false" />
+    <Property Name="Id_Shop" Type="int" Nullable="false" />
+    <Property Name="Summ" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WorkersPosition">
+    <Key>
+      <PropertyRef Name="PositionId" />
+    </Key>
+    <Property Name="PositionId" Type="int" Nullable="false" />
+    <Property Name="PositionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Zapros">
+    <Key>
+      <PropertyRef Name="ZaprosId" />
+    </Key>
+    <Property Name="ZaprosId" Type="int" Nullable="false" />
+    <Property Name="NameZap" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Expert_Role1">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="AvtorisationP" Type="Self.AvtorisationP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="AvtorisationP">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NewsItem_Author">
+    <End Role="Author" Type="Self.Author" Multiplicity="1" />
+    <End Role="NewsItem" Type="Self.NewsItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="AuthorId" />
+      </Principal>
+      <Dependent Role="NewsItem">
+        <PropertyRef Name="AuthorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectItem_Zapros">
+    <End Role="Zapros" Type="Self.Zapros" Multiplicity="1" />
+    <End Role="ProjectItem" Type="Self.ProjectItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zapros">
+        <PropertyRef Name="ZaprosId" />
+      </Principal>
+      <Dependent Role="ProjectItem">
+        <PropertyRef Name="ZaprosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Position">
+    <End Role="Position" Type="Self.Position" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="PositionId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="PositionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkerBe_Workers">
+    <End Role="Workers" Type="Self.Workers" Multiplicity="1" />
+    <End Role="WorkerBe" Type="Self.WorkerBe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="Id_Worker" />
+      </Principal>
+      <Dependent Role="WorkerBe">
+        <PropertyRef Name="Id_Worker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Workers_WorkersPosition">
+    <End Role="WorkersPosition" Type="Self.WorkersPosition" Multiplicity="1" />
+    <End Role="Workers" Type="Self.Workers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkersPosition">
+        <PropertyRef Name="PositionId" />
+      </Principal>
+      <Dependent Role="Workers">
+        <PropertyRef Name="PositionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkersExpenses_ShopIdName">
+    <End Role="ShopIdName" Type="Self.ShopIdName" Multiplicity="1" />
+    <End Role="WorkersExpenses" Type="Self.WorkersExpenses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShopIdName">
+        <PropertyRef Name="Id_Shop" />
+      </Principal>
+      <Dependent Role="WorkersExpenses">
+        <PropertyRef Name="Id_Shop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkersExpenses_Workers">
+    <End Role="Workers" Type="Self.Workers" Multiplicity="1" />
+    <End Role="WorkersExpenses" Type="Self.WorkersExpenses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="Id_Worker" />
+      </Principal>
+      <Dependent Role="WorkersExpenses">
+        <PropertyRef Name="Id_Worker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище RomanovAModelContainer">
+    <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AvtorisationP" EntityType="Self.AvtorisationP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NewsItem" EntityType="Self.NewsItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectItem" EntityType="Self.ProjectItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShopIdName" EntityType="Self.ShopIdName" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkerBe" EntityType="Self.WorkerBe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Workers" EntityType="Self.Workers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkersExpenses" EntityType="Self.WorkersExpenses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkersPosition" EntityType="Self.WorkersPosition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Zapros" EntityType="Self.Zapros" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Expert_Role1" Association="Self.FK_Expert_Role1">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="AvtorisationP" EntitySet="AvtorisationP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NewsItem_Author" Association="Self.FK_NewsItem_Author">
+      <End Role="Author" EntitySet="Author" />
+      <End Role="NewsItem" EntitySet="NewsItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectItem_Zapros" Association="Self.FK_ProjectItem_Zapros">
+      <End Role="Zapros" EntitySet="Zapros" />
+      <End Role="ProjectItem" EntitySet="ProjectItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Position" Association="Self.FK_Users_Position">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkerBe_Workers" Association="Self.FK_WorkerBe_Workers">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="WorkerBe" EntitySet="WorkerBe" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Workers_WorkersPosition" Association="Self.FK_Workers_WorkersPosition">
+      <End Role="WorkersPosition" EntitySet="WorkersPosition" />
+      <End Role="Workers" EntitySet="Workers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkersExpenses_ShopIdName" Association="Self.FK_WorkersExpenses_ShopIdName">
+      <End Role="ShopIdName" EntitySet="ShopIdName" />
+      <End Role="WorkersExpenses" EntitySet="WorkersExpenses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkersExpenses_Workers" Association="Self.FK_WorkersExpenses_Workers">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="WorkersExpenses" EntitySet="WorkersExpenses" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

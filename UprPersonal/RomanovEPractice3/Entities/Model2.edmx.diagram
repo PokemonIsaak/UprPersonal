@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2976bcffec104af09c50f38dbe2ccd22" Name="Diagram1" ZoomLevel="47">
+        <EntityTypeShape EntityType="RomanovAModel1.Author" Width="1.5" PointX="10.75" PointY="9.375" />
+        <EntityTypeShape EntityType="RomanovAModel1.AvtorisationP" Width="1.5" PointX="8" PointY="9" />
+        <EntityTypeShape EntityType="RomanovAModel1.NewsItem" Width="1.5" PointX="13" PointY="9" />
+        <EntityTypeShape EntityType="RomanovAModel1.Position" Width="1.5" PointX="7.75" PointY="5.375" />
+        <EntityTypeShape EntityType="RomanovAModel1.ProjectItem" Width="1.5" PointX="10" PointY="0.875" />
+        <EntityTypeShape EntityType="RomanovAModel1.Role" Width="1.5" PointX="5.75" PointY="9.5" />
+        <EntityTypeShape EntityType="RomanovAModel1.ShopIdName" Width="1.5" PointX="3" PointY="7.75" />
+        <EntityTypeShape EntityType="RomanovAModel1.sysdiagrams" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="RomanovAModel1.Users" Width="1.5" PointX="10" PointY="5" />
+        <EntityTypeShape EntityType="RomanovAModel1.WorkerBe" Width="1.5" PointX="5.25" PointY="5.5" />
+        <EntityTypeShape EntityType="RomanovAModel1.Workers" Width="1.5" PointX="3" PointY="2" />
+        <EntityTypeShape EntityType="RomanovAModel1.WorkersExpenses" Width="1.5" PointX="5.25" PointY="2.375" />
+        <EntityTypeShape EntityType="RomanovAModel1.WorkersPosition" Width="1.5" PointX="0.75" PointY="2.75" />
+        <EntityTypeShape EntityType="RomanovAModel1.Zapros" Width="1.5" PointX="7.75" PointY="1.25" />
+        <AssociationConnector Association="RomanovAModel1.FK_NewsItem_Author" />
+        <AssociationConnector Association="RomanovAModel1.FK_Expert_Role1" />
+        <AssociationConnector Association="RomanovAModel1.FK_Users_Position" />
+        <AssociationConnector Association="RomanovAModel1.FK_ProjectItem_Zapros" />
+        <AssociationConnector Association="RomanovAModel1.FK_WorkersExpenses_ShopIdName" />
+        <AssociationConnector Association="RomanovAModel1.FK_WorkerBe_Workers" />
+        <AssociationConnector Association="RomanovAModel1.FK_Workers_WorkersPosition" />
+        <AssociationConnector Association="RomanovAModel1.FK_WorkersExpenses_Workers" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

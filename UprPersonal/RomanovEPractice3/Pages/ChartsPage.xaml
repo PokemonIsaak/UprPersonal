@@ -1,0 +1,33 @@
+﻿<Page x:Class="RomanovEPractice3.Pages.ChartsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RomanovEPractice3.Pages"
+      xmlns:charting="clr-namespace:System.Windows.Forms.DataVisualization.Charting;assembly=System.Windows.Forms.DataVisualization"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Активность пользователей в листе новостей">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+            <TextBlock Style="{StaticResource CommonText}" Text="Выберите нужную дату: "></TextBlock>
+            <DatePicker x:Name="PickerStart" SelectedDateChanged="PickerStart_SelectedDateChanged"/>
+            <TextBlock Style="{StaticResource CommonText}" Text="Тип графика: "></TextBlock>
+            <ComboBox Name="ComboType" SelectionChanged="ComboType_SelectionChanged" SelectedIndex="0"></ComboBox>
+        </StackPanel>
+        <WindowsFormsHost Grid.Row="1" Margin="12" Name="HostChart" ChildChanged="HostChart_ChildChanged">
+            <charting:Chart Name="ChartData">
+                <charting:Chart.Legends>
+                    <charting:Legend></charting:Legend>
+                </charting:Chart.Legends>
+            </charting:Chart>
+        </WindowsFormsHost>
+    </Grid>
+</Page>

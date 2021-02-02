@@ -1,0 +1,43 @@
+﻿<Page x:Class="RomanovEPractice3.Pages.AddWorkerWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RomanovEPractice3.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Добавление сотрудника">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Код: " Style="{StaticResource CommonText}"></TextBlock>
+                <TextBlock x:Name="TbxId"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="ФИО: " Style="{StaticResource CommonText}"></TextBlock>
+                <TextBox x:Name="TbxF"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Дата: " Style="{StaticResource CommonText}"></TextBlock>
+                <DatePicker Name="DtpD" SelectedDateFormat="Short"></DatePicker>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Зарплата: " Style="{StaticResource CommonText}"></TextBlock>
+                <TextBox x:Name="TbxS"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Должность: " Style="{StaticResource CommonText}"></TextBlock>
+                <ComboBox x:Name="CmbPosition" 
+                          Width="187" 
+                          Margin="5" 
+                          DisplayMemberPath="PositionName"
+                          SelectionChanged="CmbPosition_SelectionChanged"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="BtnYes" Content="Yes" Click="BtnYes_Click"></Button>
+                <Button x:Name="BtnNo" Content="No" Click="BtnNo_Click"></Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

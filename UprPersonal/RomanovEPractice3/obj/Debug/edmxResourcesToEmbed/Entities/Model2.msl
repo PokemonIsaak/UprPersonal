@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище RomanovAModel1Container" CdmEntityContainer="RomanovAEntities1">
+    <EntitySetMapping Name="Author">
+      <EntityTypeMapping TypeName="RomanovAModel1.Author">
+        <MappingFragment StoreEntitySet="Author">
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AvtorisationP">
+      <EntityTypeMapping TypeName="RomanovAModel1.AvtorisationP">
+        <MappingFragment StoreEntitySet="AvtorisationP">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="ExpertId" ColumnName="ExpertId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NewsItem">
+      <EntityTypeMapping TypeName="RomanovAModel1.NewsItem">
+        <MappingFragment StoreEntitySet="NewsItem">
+          <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Header" ColumnName="Header" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Position">
+      <EntityTypeMapping TypeName="RomanovAModel1.Position">
+        <MappingFragment StoreEntitySet="Position">
+          <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+          <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectItem">
+      <EntityTypeMapping TypeName="RomanovAModel1.ProjectItem">
+        <MappingFragment StoreEntitySet="ProjectItem">
+          <ScalarProperty Name="ZaprosId" ColumnName="ZaprosId" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Header" ColumnName="Header" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="RomanovAModel1.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShopIdName">
+      <EntityTypeMapping TypeName="RomanovAModel1.ShopIdName">
+        <MappingFragment StoreEntitySet="ShopIdName">
+          <ScalarProperty Name="NameShop" ColumnName="NameShop" />
+          <ScalarProperty Name="Id_Shop" ColumnName="Id_Shop" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="RomanovAModel1.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="RomanovAModel1.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+          <ScalarProperty Name="DateofBirthday" ColumnName="DateofBirthday" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkerBe">
+      <EntityTypeMapping TypeName="RomanovAModel1.WorkerBe">
+        <MappingFragment StoreEntitySet="WorkerBe">
+          <ScalarProperty Name="WorkerIsBe" ColumnName="WorkerIsBe" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Id_Worker" ColumnName="Id_Worker" />
+          <ScalarProperty Name="Id_Nal" ColumnName="Id_Nal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Workers">
+      <EntityTypeMapping TypeName="RomanovAModel1.Workers">
+        <MappingFragment StoreEntitySet="Workers">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="TimeOfBirth" ColumnName="TimeOfBirth" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="Id_Worker" ColumnName="Id_Worker" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkersExpenses">
+      <EntityTypeMapping TypeName="RomanovAModel1.WorkersExpenses">
+        <MappingFragment StoreEntitySet="WorkersExpenses">
+          <ScalarProperty Name="Summ" ColumnName="Summ" />
+          <ScalarProperty Name="Id_Shop" ColumnName="Id_Shop" />
+          <ScalarProperty Name="Id_Worker" ColumnName="Id_Worker" />
+          <ScalarProperty Name="Id_Expenses" ColumnName="Id_Expenses" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkersPosition">
+      <EntityTypeMapping TypeName="RomanovAModel1.WorkersPosition">
+        <MappingFragment StoreEntitySet="WorkersPosition">
+          <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+          <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zapros">
+      <EntityTypeMapping TypeName="RomanovAModel1.Zapros">
+        <MappingFragment StoreEntitySet="Zapros">
+          <ScalarProperty Name="NameZap" ColumnName="NameZap" />
+          <ScalarProperty Name="ZaprosId" ColumnName="ZaprosId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

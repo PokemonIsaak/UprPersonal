@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RomanovAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="RomanovAEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(RomanovAModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(RomanovAModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="Author" EntityType="RomanovAModel.Author" />
+    <EntitySet Name="AvtorisationP" EntityType="RomanovAModel.AvtorisationP" />
+    <EntitySet Name="NewsItem" EntityType="RomanovAModel.NewsItem" />
+    <EntitySet Name="Position" EntityType="RomanovAModel.Position" />
+    <EntitySet Name="ProjectItem" EntityType="RomanovAModel.ProjectItem" />
+    <EntitySet Name="Role" EntityType="RomanovAModel.Role" />
+    <EntitySet Name="ShopIdName" EntityType="RomanovAModel.ShopIdName" />
+    <EntitySet Name="sysdiagrams" EntityType="RomanovAModel.sysdiagrams" />
+    <EntitySet Name="Users" EntityType="RomanovAModel.Users" />
+    <EntitySet Name="WorkerBe" EntityType="RomanovAModel.WorkerBe" />
+    <EntitySet Name="Workers" EntityType="RomanovAModel.Workers" />
+    <EntitySet Name="WorkersExpenses" EntityType="RomanovAModel.WorkersExpenses" />
+    <EntitySet Name="WorkersPosition" EntityType="RomanovAModel.WorkersPosition" />
+    <EntitySet Name="Zapros" EntityType="RomanovAModel.Zapros" />
+    <AssociationSet Name="FK_NewsItem_Author" Association="RomanovAModel.FK_NewsItem_Author">
+      <End Role="Author" EntitySet="Author" />
+      <End Role="NewsItem" EntitySet="NewsItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Expert_Role1" Association="RomanovAModel.FK_Expert_Role1">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="AvtorisationP" EntitySet="AvtorisationP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Position" Association="RomanovAModel.FK_Users_Position">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectItem_Zapros" Association="RomanovAModel.FK_ProjectItem_Zapros">
+      <End Role="Zapros" EntitySet="Zapros" />
+      <End Role="ProjectItem" EntitySet="ProjectItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkersExpenses_ShopIdName" Association="RomanovAModel.FK_WorkersExpenses_ShopIdName">
+      <End Role="ShopIdName" EntitySet="ShopIdName" />
+      <End Role="WorkersExpenses" EntitySet="WorkersExpenses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkerBe_Workers" Association="RomanovAModel.FK_WorkerBe_Workers">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="WorkerBe" EntitySet="WorkerBe" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Workers_WorkersPosition" Association="RomanovAModel.FK_Workers_WorkersPosition">
+      <End Role="WorkersPosition" EntitySet="WorkersPosition" />
+      <End Role="Workers" EntitySet="Workers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WorkersExpenses_Workers" Association="RomanovAModel.FK_WorkersExpenses_Workers">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="WorkersExpenses" EntitySet="WorkersExpenses" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Author">
+    <Key>
+      <PropertyRef Name="AuthorId" />
+    </Key>
+    <Property Name="AuthorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NickName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="NewsItem" Relationship="RomanovAModel.FK_NewsItem_Author" FromRole="Author" ToRole="NewsItem" />
+  </EntityType>
+  <EntityType Name="AvtorisationP">
+    <Key>
+      <PropertyRef Name="ExpertId" />
+    </Key>
+    <Property Name="ExpertId" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Role" Relationship="RomanovAModel.FK_Expert_Role1" FromRole="AvtorisationP" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="NewsItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Header" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="AuthorId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Author" Relationship="RomanovAModel.FK_NewsItem_Author" FromRole="NewsItem" ToRole="Author" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="PositionId" />
+    </Key>
+    <Property Name="PositionId" Type="Int32" Nullable="false" />
+    <Property Name="PositionName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="RomanovAModel.FK_Users_Position" FromRole="Position" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="ProjectItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Header" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ZaprosId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Zapros" Relationship="RomanovAModel.FK_ProjectItem_Zapros" FromRole="ProjectItem" ToRole="Zapros" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AvtorisationP" Relationship="RomanovAModel.FK_Expert_Role1" FromRole="Role" ToRole="AvtorisationP" />
+  </EntityType>
+  <EntityType Name="ShopIdName">
+    <Key>
+      <PropertyRef Name="Id_Shop" />
+    </Key>
+    <Property Name="Id_Shop" Type="Int32" Nullable="false" />
+    <Property Name="NameShop" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="WorkersExpenses" Relationship="RomanovAModel.FK_WorkersExpenses_ShopIdName" FromRole="ShopIdName" ToRole="WorkersExpenses" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateofBirthday" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PositionId" Type="Int32" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Position" Relationship="RomanovAModel.FK_Users_Position" FromRole="Users" ToRole="Position" />
+  </EntityType>
+  <EntityType Name="WorkerBe">
+    <Key>
+      <PropertyRef Name="Id_Nal" />
+    </Key>
+    <Property Name="Id_Nal" Type="Int32" Nullable="false" />
+    <Property Name="Id_Worker" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="WorkerIsBe" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Workers" Relationship="RomanovAModel.FK_WorkerBe_Workers" FromRole="WorkerBe" ToRole="Workers" />
+  </EntityType>
+  <EntityType Name="Workers">
+    <Key>
+      <PropertyRef Name="Id_Worker" />
+    </Key>
+    <Property Name="Id_Worker" Type="Int32" Nullable="false" />
+    <Property Name="FIO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="TimeOfBirth" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="Salary" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="PositionId" Type="Int32" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="WorkerBe" Relationship="RomanovAModel.FK_WorkerBe_Workers" FromRole="Workers" ToRole="WorkerBe" />
+    <NavigationProperty Name="WorkersPosition" Relationship="RomanovAModel.FK_Workers_WorkersPosition" FromRole="Workers" ToRole="WorkersPosition" />
+    <NavigationProperty Name="WorkersExpenses" Relationship="RomanovAModel.FK_WorkersExpenses_Workers" FromRole="Workers" ToRole="WorkersExpenses" />
+  </EntityType>
+  <EntityType Name="WorkersExpenses">
+    <Key>
+      <PropertyRef Name="Id_Expenses" />
+    </Key>
+    <Property Name="Id_Expenses" Type="Int32" Nullable="false" />
+    <Property Name="Id_Worker" Type="Int32" Nullable="false" />
+    <Property Name="Id_Shop" Type="Int32" Nullable="false" />
+    <Property Name="Summ" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <NavigationProperty Name="ShopIdName" Relationship="RomanovAModel.FK_WorkersExpenses_ShopIdName" FromRole="WorkersExpenses" ToRole="ShopIdName" />
+    <NavigationProperty Name="Workers" Relationship="RomanovAModel.FK_WorkersExpenses_Workers" FromRole="WorkersExpenses" ToRole="Workers" />
+  </EntityType>
+  <EntityType Name="WorkersPosition">
+    <Key>
+      <PropertyRef Name="PositionId" />
+    </Key>
+    <Property Name="PositionId" Type="Int32" Nullable="false" />
+    <Property Name="PositionName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Workers" Relationship="RomanovAModel.FK_Workers_WorkersPosition" FromRole="WorkersPosition" ToRole="Workers" />
+  </EntityType>
+  <EntityType Name="Zapros">
+    <Key>
+      <PropertyRef Name="ZaprosId" />
+    </Key>
+    <Property Name="ZaprosId" Type="Int32" Nullable="false" />
+    <Property Name="NameZap" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ProjectItem" Relationship="RomanovAModel.FK_ProjectItem_Zapros" FromRole="Zapros" ToRole="ProjectItem" />
+  </EntityType>
+  <Association Name="FK_NewsItem_Author">
+    <End Type="RomanovAModel.Author" Role="Author" Multiplicity="1" />
+    <End Type="RomanovAModel.NewsItem" Role="NewsItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="AuthorId" />
+      </Principal>
+      <Dependent Role="NewsItem">
+        <PropertyRef Name="AuthorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Expert_Role1">
+    <End Type="RomanovAModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="RomanovAModel.AvtorisationP" Role="AvtorisationP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="AvtorisationP">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Position">
+    <End Type="RomanovAModel.Position" Role="Position" Multiplicity="1" />
+    <End Type="RomanovAModel.Users" Role="Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="PositionId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="PositionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectItem_Zapros">
+    <End Type="RomanovAModel.Zapros" Role="Zapros" Multiplicity="1" />
+    <End Type="RomanovAModel.ProjectItem" Role="ProjectItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zapros">
+        <PropertyRef Name="ZaprosId" />
+      </Principal>
+      <Dependent Role="ProjectItem">
+        <PropertyRef Name="ZaprosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkersExpenses_ShopIdName">
+    <End Type="RomanovAModel.ShopIdName" Role="ShopIdName" Multiplicity="1" />
+    <End Type="RomanovAModel.WorkersExpenses" Role="WorkersExpenses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShopIdName">
+        <PropertyRef Name="Id_Shop" />
+      </Principal>
+      <Dependent Role="WorkersExpenses">
+        <PropertyRef Name="Id_Shop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkerBe_Workers">
+    <End Type="RomanovAModel.Workers" Role="Workers" Multiplicity="1" />
+    <End Type="RomanovAModel.WorkerBe" Role="WorkerBe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="Id_Worker" />
+      </Principal>
+      <Dependent Role="WorkerBe">
+        <PropertyRef Name="Id_Worker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Workers_WorkersPosition">
+    <End Type="RomanovAModel.WorkersPosition" Role="WorkersPosition" Multiplicity="1" />
+    <End Type="RomanovAModel.Workers" Role="Workers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkersPosition">
+        <PropertyRef Name="PositionId" />
+      </Principal>
+      <Dependent Role="Workers">
+        <PropertyRef Name="PositionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WorkersExpenses_Workers">
+    <End Type="RomanovAModel.Workers" Role="Workers" Multiplicity="1" />
+    <End Type="RomanovAModel.WorkersExpenses" Role="WorkersExpenses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="Id_Worker" />
+      </Principal>
+      <Dependent Role="WorkersExpenses">
+        <PropertyRef Name="Id_Worker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
